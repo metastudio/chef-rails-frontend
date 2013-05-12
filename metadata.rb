@@ -1,4 +1,4 @@
-name 'chef-rails-frontend'
+name 'chef-frontend'
 
 depends 'build-essential'
 depends 'nginx'
