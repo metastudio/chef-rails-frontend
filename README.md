@@ -1,1 +1,3 @@
-# chef-rails nginx cookbook
+# Frontend server cookbook
+
+Installs nginx.

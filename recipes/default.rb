@@ -1,5 +1,5 @@
 include_recipe "nginx::source"
-include_recipe "nginx::monit"
+include_recipe "#{cookbook_name}::monit"
 
 conf_name = "#{node[:application][:name]}.conf"
 
