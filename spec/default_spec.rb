@@ -10,4 +10,8 @@ describe 'chef-rails-frontend::default' do
   it 'includes nginx::monit' do
     expect(chef_run).to include_recipe 'chef-rails-frontend::monit'
   end
+
+  it 'includes nginx::logrotate' do
+    expect(chef_run).to include_recipe 'chef-rails-frontend::logrotate'
+  end
 end

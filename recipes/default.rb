@@ -1,5 +1,7 @@
 include_recipe "nginx::source"
+
 include_recipe "#{cookbook_name}::monit"
+include_recipe "#{cookbook_name}::logrotate"
 
 conf_name = "#{node[:application][:name]}.conf"
 
