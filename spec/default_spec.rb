@@ -1,17 +1,22 @@
 require 'chefspec'
 
 describe 'chef-rails-frontend::default' do
-  let(:chef_run) { ChefSpec::ChefRunner.new.converge 'chef-rails-frontend::default' }
+  let(:chef_run) { ChefSpec::ChefRunner.new platform:'ubuntu', version:'12.04' }
+  let(:converge) { chef_run.converge described_recipe }
+
+  before do
+    chef_run.node.set[:ohai][:plugin_path] = ''
+  end
 
   it 'includes nginx::source' do
-    expect(chef_run).to include_recipe 'nginx::source'
+    expect(converge).to include_recipe 'nginx::source'
   end
 
   it 'includes nginx::monit' do
-    expect(chef_run).to include_recipe 'chef-rails-frontend::monit'
+    expect(converge).to include_recipe "#{described_cookbook}::monit"
   end
 
   it 'includes nginx::logrotate' do
-    expect(chef_run).to include_recipe 'chef-rails-frontend::logrotate'
+    expect(converge).to include_recipe "#{described_cookbook}::logrotate"
   end
 end
