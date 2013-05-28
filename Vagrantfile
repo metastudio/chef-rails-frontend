@@ -79,8 +79,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = [ 'vendor/cookbooks' ]
     chef.run_list = [
-      'chef-rails-frontend',
-      'minitest-handler'
+      'chef-rails-frontend'
+      # 'minitest-handler'
     ]
   end
 
